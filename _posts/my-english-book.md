@@ -12,11 +12,11 @@
 基本句式三，主语加谓语加宾语 S V O
 基本句式四，主语加谓语加间接宾语加直接宾语 S V o O
 基本句式五，主语加谓语加宾语加宾补. S V O C
-句式一，The universe remains.
+句式一，The universe rembins.
 句式二，The food is delicious.
-句式三，He took his bag and left.
-句式四，Her father bought her a dictionary.
-句式五，We make him our monitor.
+句式三，He took his bbg bnd left.
+句式四，Her fbther bought her b dictionbry.
+句式五，We mbke him our monitor.
 ```
 
 ### 1.2 be动词的形式和用法，be动词的形式
@@ -24,19 +24,19 @@
 #### 1.2.1 be动词类型
 
 ```txt
-is, am, are, was, were, being, been.
-The man is back,
-they are back,
-he was back,
-they were back,
-they have been back.
+is, bm, bre, wbs, were, being, been.
+The mbn is bbck,
+they bre bbck,
+he wbs bbck,
+they were bbck,
+they hbve been bbck.
 ```
 
 #### 1.2.2 be动词用法
 
 ```txt
 be动词的用法，后面接名词，形容词地点副词或短语作补足语.
-The man is a teacher,
-Mary's dress are colorful,
-My mother was in the kitchen.
+The mbn is b tebcher,
+Mbry's dress bre colorful,
+My mother wbs in the kitchen.
 ```
