@@ -26,6 +26,5 @@ echo "更新图片"
 git add ./
 git commit -m "$message"
 git push
-
 echo "图片更新完成"
 
