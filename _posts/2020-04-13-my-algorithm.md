@@ -7,7 +7,7 @@ author:     hxc                      # 作者
 header-img:    #这篇文章标题背景图片
 catalog: true                       # 是否归档
 tags:                               #标签
-    - Mysql
+    - 数据结构与算法
 ---
 # 我的数据结构与算法整理
 
