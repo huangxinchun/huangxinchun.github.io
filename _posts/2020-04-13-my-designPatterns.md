@@ -132,7 +132,7 @@ public class Client {
 
 - 类适配器
 
-![图片](/images/imagesDesignPatterns/07_adapter_07.png)
+![图片](/images/imagesDesignPatterns/07_adapter_05.png)
 
 通过多重继承目标接口和被适配者类方式来实现适配。
 
