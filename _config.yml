@@ -14,11 +14,12 @@ defaults:
     values:
       image: true
 
-title: hxc
-name: hxc
-description: 
+title: 小小砖头工个人博客
+name: 小小砖头工
+description: 娱乐与辛苦不会被记住~知识才会~
 
 github: https://github.com/huangxinchun/
+email: mailto:173315279@qq.com
 rss: true
 
 plugins:

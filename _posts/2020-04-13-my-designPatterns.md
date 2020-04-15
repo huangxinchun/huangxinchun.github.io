@@ -288,6 +288,7 @@ public class MyTest {
 输出和上面对象适配器一样。
 
 ### 2.3 代理模式(Proxy)
+<<<<<<< HEAD
 
 #### 2.3.1 基本概念
 
@@ -616,6 +617,10 @@ order price : 8.0
 
 
 
+=======
+### 2.4 组合模式(Composite)
+### 2.5 装饰模式(Decorator)
+>>>>>>> 9c7bd1bcd61e2de403f3ea03b72fd77900ad92fc
 ### 2.6 桥模式(Bridge)
 ### 2.7 亨元模式(Flyweight)
 
