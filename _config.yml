@@ -1,38 +1,126 @@
-sass:
-  style: compressed
+# ---------------- #
+#   Main Configs   #
+# ---------------- #
+baseurl:
+url: https://github.com/huangxinchun/
+date_format: "ordinal"
+title: 何乐而不为
+subtitle: "Design your life."
+description: "ripper's blog"
+keywords: 何乐而不为, 何宗苡, ripper, ripperhe
+timezone: Asia/Beijing
+encoding: "utf-8"
+side_bar_repo_limit: 4
 
-defaults:
-  -
-    scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
-  -
-    scope:
-      path: "assets/img"
-    values:
-      image: true
-
-title: 小小砖头工个人博客
-name: 小小砖头工
-description: 娱乐与辛苦不会被记住~知识才会~
-
-github: https://github.com/huangxinchun/
+# ---------------- #
+#      Author      #
+# ---------------- #
+author: hxc
+organization: Picooc
+organization_url: https://github.com/huangxinchun/
+github_username: huangxinchun
+location: Beijing, China
 email: mailto:173315279@qq.com
 twitter: https://huangxinchun.github.io/HxcBlog
-rss: true
 
-plugins:
-  - rouge
-  - kramdown
-  - jekyll-feed
-  - jekyll-seo-tag
-  - jemoji
+# ---------------- #
+#    Navigation    #
+# ---------------- #
+navs:
+  -
+    href: /
+    label: 首页
 
-exclude:
-  - script
-  - docs
-  - vendor
-  - Gemfile
-  - Gemfile.lock
+  -
+    href: /categories/
+    label: 分类
+
+#   -
+#     href: /archives/
+#     label: 归档
+
+  -
+    href: /wiki/
+    label: 维基
+
+  -
+    href: /links/
+    label: 链接
+
+  -
+    href: /about/
+    label: 关于
+
+# ---------------- #
+#       RSS        #
+# ---------------- #
+subscribe_rss: /feed.xml
+
+# ---------------- #
+#      Jekyll      #
+# ---------------- #
+markdown: kramdown
+kramdown:
+    input: GFM
+highlighter: rouge
+paginate: 8
+lsi: false
+quiet: false
+excerpt_separator: "\n\n"
+permalink: /:year/:month/:day/:title/
+gems:
+    - jekyll-github-metadata
+    - rouge
+#     - jekyll-html-pipeline
+    - jekyll-paginate
+    - jekyll-sitemap
+    - jekyll-feed
+    - jemoji
+#     - jekyll-mentions
+collections:
+    wiki:
+        output: true
+        permalink: /wiki/:path/
+
+repository: ripperhe/ripperhe.github.io
+
+# ---------------- #
+#      Comments    #
+# ---------------- #
+# support provider: disqus, gitment, gitalk
+comments_provider: gitalk
+# !!!重要!!! 请修改下面这些信息为你自己申请的
+# !!!Important!!! Please modify infos below to yours
+# https://disqus.com
+disqus:
+    username:
+# https://imsun.net/posts/gitment-introduction/
+gitment:
+    owner: ripperhe
+    repo: blog-comments
+    oauth:
+        client_id: 6dcf63ab4e93d33d33fa
+        client_secret: aa430158c8d3fc3c2c15c94063854d6513bda0e6
+# https://github.com/gitalk/gitalk#install
+gitalk:
+    owner: ripperhe
+    repo: blog-comments
+    clientID: 6dcf63ab4e93d33d33fa
+    clientSecret: aa430158c8d3fc3c2c15c94063854d6513bda0e6
+# 在使用其它评论组件时可点击显示 Disqus
+lazy_load_disqus : false
+
+# ---------------- #
+#      Search      #
+# ---------------- #
+simple_jekyll_search:
+    # 是否支持全文搜索
+    fulltext: false
+    # 最多显示多少条搜索结果
+    limit: 10
+
+# ---------------- #
+#    Analytics     #
+# ---------------- #
+google:
+    analytics_id: UA-87925867-1
