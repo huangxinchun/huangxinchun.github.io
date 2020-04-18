@@ -27,8 +27,8 @@ tags:                               #标签
 ### 1.3 抽象工厂模式(Abstract Factory)
 ### 1.4 单例模式(Singleton)
 ### 1.5 创建者模式(Builder)
-### 1.6 原型模式(Prototype)
 
+### 1.6 原型模式(Prototype)
 
 ## 2 结构型模式
 
@@ -40,12 +40,9 @@ tags:                               #标签
 #### 2.1.2 结构
 门面模式没有一个一般化的类图描述，最好的描述方法实际上就是以一个例子说明。
 
-由于门面模式的结构图过于抽象，因此把它稍稍具体点。假设子系统内有三个模块，分别是ModuleA、ModuleB和ModuleC，它们分别有一个示例方法，那么此时示例的整体结构图如下： 
+由于门面模式的结构图过于抽象，因此把它稍稍具体点。假设子系统内有三个模块，分别是ModuleA、ModuleB和ModuleC，它们分别有一个示例方法，那么此时示例的整体结构图如下：
 
-![图片](/images/imagesDesignPatterns/07_adapter_30.png)
-
-在这个对象图中，出现了两个角色：
-
+![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/07_adapter_30.png) 在这个对象图中，出现了两个角色：
 - **门面(Facade)角色** ：客户端可以调用这个角色的方法。此角色知晓相关的（一个或者多个）子系统的功能和责任。在正常情况下，本角色会将所有从客户端发来的请求委派到相应的子系统去。
 
 - **子系统(SubSystem)角色** ：可以同时有一个或者多个子系统。每个子系统都不是一个单独的类，而是一个类的集合（如上面的子系统就是由ModuleA、ModuleB、ModuleC三个类组合而成）。每个子系统都可以被客户端直接调用，或者被门面角色调用。子系统并不知道门面的存在，对于子系统而言，门面仅仅是另外一个客户端而已。
@@ -123,7 +120,7 @@ public class Client {
 
 - 对象适配器
 
-![图片](/images/imagesDesignPatterns/07_adapter_01.png)
+![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/07_adapter_01.png)
 
 从用户的角度看不到被**适配者**。
 
@@ -133,7 +130,7 @@ public class Client {
 
 - 类适配器
 
-![图片](/images/imagesDesignPatterns/07_adapter_05.png)
+![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/07_adapter_05.png)
 
 通过多重继承目标接口和被适配者类方式来实现适配。
 
@@ -144,11 +141,11 @@ public class Client {
 
 逻辑图:
 
-![图片](/images/imagesDesignPatterns/07_adapter_03.png)
+![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/07_adapter_03.png)
 
 代码组织结构图:
 
-![图片](/images/imagesDesignPatterns/07_adapter_02.png)
+![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/07_adapter_02.png)
 
 被适配者火鸡Turkey:
 
@@ -243,7 +240,7 @@ I am Flying a short distance!
 
 基本结构图:
 
-![图片](/images/imagesDesignPatterns/07_adapter_04.png)
+![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/07_adapter_04.png)
 
 虽然Java不支持多继承，但是可以实现的同时继承。
 
@@ -298,13 +295,13 @@ public class MyTest {
 
 代理可以看做就是在被代理对象外面包裹一层（和装饰者类似但又不同）
 
-![图片](/images/imagesDesignPatterns/11_proxy_02.png)
+![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/11_proxy_02.png)
 
 #### 2.3.3 案例
 
 比如我们有一个可以移动的坦克，它的主要方法是move()，但是我们需要记录它移动的时间，以及在它移动前后做日志，其静态代理的实现模式就类似下面的图:
 
-![图片](/images/imagesDesignPatterns/11_proxy_01.png)
+![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/11_proxy_01.png)
 
 实现如下：
 
@@ -427,7 +424,7 @@ Tank Log end.......
 > 所谓装饰，就是把这个装饰者套在被装饰者之上，从而动态扩展被装饰者的功能；
 > 装饰者的方法有一部分是自己的，这属于它的功能(半透明的装饰者模式)。然后调用被装饰者的方法实现，从而也保> 留了被装饰者的功能；
 
-![图片](/images/imagesDesignPatterns/03_decorator_02.png)
+![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/03_decorator_02.png)
 
 
 #### 2.5.3 案例
@@ -438,7 +435,7 @@ Tank Log end.......
 
 具体的代码组织结构图:
 
-![图片](/images/imagesDesignPatterns/03_decorator_01.png)
+![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/03_decorator_01.png)
 
 具体代码:
 
