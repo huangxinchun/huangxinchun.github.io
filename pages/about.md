@@ -1,8 +1,8 @@
 ---
 layout: page
 title: About
-description: 爱上你的命运
-keywords: Ripper, ripperhe
+description: 知识的积累
+keywords: hxc
 comments: true
 menu: 关于
 permalink: /about/
@@ -10,7 +10,7 @@ permalink: /about/
 
 > 爱上你的命运「Amor fati」
 
-emmm，我是一个 iOS 开发，然后...
+娱乐和辛苦不会被记住，但是知识会！
 
 ## Contact Me
 
