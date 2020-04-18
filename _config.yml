@@ -2,12 +2,12 @@
 #   Main Configs   #
 # ---------------- #
 baseurl:
-url: https://github.com/huangxinchun/
+url: https://huangxinchun.github.io/
 date_format: "ordinal"
 title: 何乐而不为
 subtitle: "Design your life."
 description: "ripper's blog"
-keywords: 何乐而不为, 何宗苡, ripper, ripperhe
+keywords: 
 timezone: Asia/Beijing
 encoding: "utf-8"
 side_bar_repo_limit: 4
@@ -17,7 +17,7 @@ side_bar_repo_limit: 4
 # ---------------- #
 author: hxc
 organization: Picooc
-organization_url: https://github.com/huangxinchun/
+organization_url: https://huangxinchun.github.io/
 github_username: huangxinchun
 location: Beijing, China
 email: mailto:173315279@qq.com
