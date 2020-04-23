@@ -20,15 +20,322 @@ tags:                               #标签
 
 #### 1.1.1 基本概念
 
+简单工厂模式是类的创建模式，又叫做静态工厂方法（Static Factory Method）模式。简单工厂模式是由一个工厂对象决定创建出哪一种产品类的实例。
+
+在创建一个对象时不向客户暴露内部细节，并提供一个创建对象的通用接口。
+
 #### 1.1.2 结构
+
+简单工厂把实例化的操作单独放到一个类中，这个类就是简单工厂类(Simple Factory)，让简单工厂类来决定应该用哪个具体子类来实例化 (而不是在客户端中决定)。
+
+这样做能把客户类和具体子类的实现解耦，客户类不再需要知道有哪些子类以及应当实例化哪个子类。
+
+客户类往往有多个，如果不使用简单工厂，那么所有的客户类都要知道所有子类的细节。而且一旦子类发生改变，例如增加子类，那么所有的客户类都要进行修改。
+
+结构:
+
+
 
 #### 1.1.3 案例
 
+>模拟在`type == 1`的时候创建`ConcreteProduct1`、在`type == 2`的时候创建`ConcreteProduct2`、其他时候创建`ConcreteProduct`。
+
+```java
+public interface Product {
+}
+```
+
+```java
+public class ConcreteProduct implements Product {
+}
+```
+
+```java
+public class ConcreteProduct1 implements Product {
+}
+```
+
+```java
+public class ConcreteProduct2 implements Product {
+}
+```
+
+如果我们按照下面的方式创建，则我们在客户端包含了这些需要判断条件的实例化代码，则可以将这些实例化代码放到简单工厂中:
+
+```java
+public class MyTest {
+    // 不好的设计
+    public static void main(String[] args) {
+        int type = 1;
+        Product product;
+        if (type == 1) {
+            product = new ConcreteProduct1();
+        } else if (type == 2) {
+            product = new ConcreteProduct2();
+        } else {
+            product = new ConcreteProduct();
+        }
+        // do something with the product
+    }
+}
+```
+
+于是我们可以增加一个简单工厂类:
+
+```java
+public class SimpleFactory {
+
+    // 也可以将createProduct写成静态的
+    public Product createProduct(int type) {
+        if (type == 1) {
+            return new ConcreteProduct1();
+        } else if (type == 2) {
+            return new ConcreteProduct2();
+        }
+        return new ConcreteProduct();
+    }
+}
+```
+
+然后我们的测试类可以写成下面的样子:
+
+```java
+public class MyTest {
+
+    public static void main(String[] args) {
+        SimpleFactory simpleFactory = new SimpleFactory();
+        Product product = simpleFactory.createProduct(1);
+        // do something with product
+    }
+}
+```
+
+这样既让客户端和具体类解耦，而且在客户端也看不到具体的繁杂的实例化代码。
+
+#### 1.1.4 总结
+
+缺点 : 这个工厂类集中了所有的创建逻辑，当有复杂的多层次等级结构时，所有的业务逻辑都在这个工厂类中实现。什么时候它不能工作了，整个系统都会受到影响。
+
+我们强调`职责单一`原则，一个类只提供一种功能
+
 ### 1.2 工厂方法(Factory Method)
+
+#### 1.2.1 基本概念
+
+`工厂方法模式`是类的创建模式，又叫做`虚拟构造子(Virtual Constructor)模式`或者`多态性工厂（Polymorphic Factory）模式`。 `工厂方法模式`的用意是定义一个创建产品对象的`工厂接口`，将实际创建工作推迟到子类中。
+
+或者说引入工厂模式的目的就是我们需要多个工厂，但是每个工厂内部又要划分情况，如果只用一个工厂的话，会产生多种复合的情况。
+
+比如说我们有两个工厂，每个工厂有3种情况，如果用简单工厂模式，要分为 3 * 2 = 6种情况，所以可以用工厂方法模式解决。
+
+#### 1.2.2 结构
+
+在简单工厂中，创建对象的是另一个类，而在工厂方法中，是由大工厂的子类(或者实现类)来创建对象。
+
+即上面有一个大工厂，下面是分类的工厂。
+
+#### 1.2.3 案例
+
+> 案例，模拟需要生成中国食物A，中国食物B，美国食物A，美国食物B。
+
+代码逻辑结构图:
+
+05_method_01.png
+
+基本结构图:
+
+04_method_02.png
+
+先给出这些食物(Product):
+
+```java
+public interface Food {
+}
+
+public class AmericanFoodA implements Food {
+}
+
+public class AmericanFoodB implements Food {
+}
+
+public class ChineseFoodA implements Food {
+}
+
+public class ChineseFoodB implements Food {
+}
+```
+
+然后是抽象工厂:
+
+```java
+public interface FoodFactory {
+    Food makeFood(String name);
+}
+```
+
+然后就是两个子工厂:
+
+```java
+public class ChineseFoodFactory implements FoodFactory {
+    @Override
+    public Food makeFood(String name) {
+        if (name.equals("A")) {
+            return new ChineseFoodA();
+        } else if (name.equals("B")) {
+            return new ChineseFoodB();
+        } else {
+            return null;
+        }
+    }
+}
+```
+
+```java
+public class AmericanFoodFactory implements FoodFactory {
+    @Override
+    public Food makeFood(String name) {
+        if (name.equals("A")) {
+            return new AmericanFoodA();
+        } else if (name.equals("B")) {
+            return new AmericanFoodB();
+        } else {
+            return null;
+        }
+    }
+}
+```
+
+最后测试:
+
+```java
+public class MyTest {
+    public static void main(String[] args) {
+        // 先选择一个具体的工厂
+        FoodFactory factory = new ChineseFoodFactory();
+
+        // 由第一步的工厂产生具体的对象，不同的工厂造出不一样的对象
+        Food food = factory.makeFood("A"); //  chineseFood * A
+    }
+}
+```
+
+#### 1.2.4 总结
+
+工厂方法模式和简单工厂模式在结构上的不同很明显。
+
+`工厂方法模式的核心是一个抽象工厂类，而简单工厂模式把核心放在一个具体类上。`
+
+工厂方法模式退化后可以变得很像简单工厂模式。设想如果非常确定一个系统只需要一个具体工厂类，那么不妨把抽象工厂类合并到具体工厂类中去。由于只有一个具体工厂类，所以不妨将工厂方法改为静态方法，这时候就得到了简单工厂模式。
+
 ### 1.3 抽象工厂模式(Abstract Factory)
+
+#### 1.3.1 基本概念
+
+当涉及到`产品族`的时候，就需要引入抽象工厂模式了。
+
+每一个模式都是针对一定问题的解决方案。抽象工厂模式与工厂方法模式的最大区别就在于，`工厂方法模式`针对的是`一个产品等级结构`；而`抽象工厂模式`则需要面对`多个产品等级`结构。
+
+在学习抽象工厂具体实例之前，应该明白两个重要的概念：`产品族`和`产品等级`。
+
+所谓产品族，是指位于不同产品等级结构中，`功能相关联的产品组成的家族`。比如`AMD的主板`、`芯片组`、`CPU`组成一个`家族`，Intel的主板、芯片组、CPU组成一个家族。而这两个家族都来自于三个产品等级：`主板`、`芯片组`、`CPU`。一个等级结构是由相同的结构的产品组成，示意图如下：
+
+#### 1.3.2 结构
+
+
+
+#### 1.3.3 案例
+
+这个时候，对于客户端来说，不再需要单独挑选 CPU厂商、主板厂商、硬盘厂商等，直接选择一家品牌工厂，品牌工厂会负责生产所有的东西，而且能保证肯定是兼容可用的。
+
+改装的抽象工厂模式代码组织结构如下:
+
+06_abstract_05.png
+
+三个工厂:(一个超类工厂PCFactory，两个大厂工厂AmdFactory、InterFactory)
+
+```java
+public interface PCFactory {
+
+    CPU makeCPU();
+    MainBoard makeMB();
+    // HardDisk makeHD();
+}
+```
+
+```java
+public class AmdFactory implements PCFactory{
+
+    @Override
+    public CPU makeCPU() {
+        return new AmdCPU();
+    }
+
+    @Override
+    public MainBoard makeMB() {
+        return new AmdMainBoard();
+    }
+}
+```
+
+
+```java
+public class IntelFactory implements PCFactory {
+
+    @Override
+    public CPU makeCPU() {
+        return new IntelCPU();
+    }
+
+    @Override
+    public MainBoard makeMB() {
+        return new IntelMainBoard();
+    }
+}
+```
+
+最后的测试类:
+
+```java
+public class MyTest {
+    public static void main(String[] args){
+        // 第一步就要选定一个“大厂”
+        PCFactory cf = new AmdFactory();
+        // 从这个大厂造 CPU
+        CPU cpu = cf.makeCPU();
+        // 从这个大厂造主板
+        MainBoard board = cf.makeMB();
+
+        //... 从这个大厂造硬盘。等等
+
+        // 将同一个厂子出来的 CPU、主板、硬盘组装在一起
+        Computer computer = new Computer(cpu, board);
+    }
+}
+```
+
+#### 1.3.4 总结
+
+当然，抽象工厂的问题也是显而易见的，比如我们要加个显示器，就需要修改所有的工厂，给所有的工厂都加上制造显示器的方法。这有点违反了对修改关闭，对扩展开放这个设计原则。
+
 ### 1.4 单例模式(Singleton)
 
+#### 1.3.1 基本概念
+
+#### 1.3.2 结构
+
+#### 1.3.3 案例
+
+#### 1.3.4 总结
+
 ### 1.5 创建者模式(Builder)
+
+#### 1.3.1 基本概念
+
+#### 1.3.2 结构
+
+#### 1.3.3 案例
+
+#### 1.3.4 总结
 
 ### 1.6 原型模式(Prototype)
 
@@ -52,7 +359,8 @@ tags:                               #标签
 #### 2.1.3 案例
 
 子系统角色中的类:
-```
+
+```java
 public class ModuleA {
     //示意方法
     public void testA(){
@@ -61,7 +369,7 @@ public class ModuleA {
 }
 ```
 
-```
+```java
 public class ModuleB {
     //示意方法
     public void testB(){
@@ -70,7 +378,7 @@ public class ModuleB {
 }
 ```
 
-```
+```java
 public class ModuleC {
     //示意方法
     public void testC(){
@@ -81,7 +389,7 @@ public class ModuleC {
 
 门面角色类：
 
-```
+```java
 public class Facade {
     //示意方法，满足客户端需要的功能
     public void test(){
@@ -97,15 +405,12 @@ public class Facade {
 
 客户端角色类：
 
-```
+```java
 public class Client {
- 
     public static void main(String[] args) {
-        
         Facade facade = new Facade();
         facade.test();
     }
- 
 }
 ```
 
@@ -151,14 +456,14 @@ public class Client {
 
 被适配者火鸡Turkey:
 
-```
+```java
 public interface Turkey {
     void gobble(); // 火鸡叫声
     void fly();
 }
 ```
 
-```
+```java
 /** 野火鸡 */
 public class WildTurkey implements Turkey{
     @Override
@@ -175,7 +480,7 @@ public class WildTurkey implements Turkey{
 
 目标对象Duck:
 
-```
+```java
 /** 鸭子的接口 */
 public interface Duck {
     void quack();//鸭子叫声
@@ -185,7 +490,7 @@ public interface Duck {
 
 适配器TurkeyAdapter:
 
-```
+```java
 /**
  * 在外面表现是 鸭子(目标)，但是实质是火鸡(被适配者)
  */
@@ -215,7 +520,7 @@ public class TurkeyAdapter implements Duck { //实现目标的接口
 
 测试:
 
-```
+```java
 public class MyTest {
 
     public static void main(String[] args) {
@@ -248,7 +553,7 @@ I am Flying a short distance!
 
 只有TurkeyAdapter有一些代码变动，其他不变:
 
-```
+```java
 /**
  * 和 对象适配器模式唯一的不同就是  : 适配器直接继承 被适配者 (而不是组合)
  */
@@ -274,7 +579,7 @@ public class TurkeyAdapter extends WildTurkey implements  Duck {
 
 测试:
 
-```
+```java
 public class MyTest {
 
     public static void main(String[] args) {
@@ -307,13 +612,13 @@ public class MyTest {
 
 实现如下：
 
-```
+```java
 public interface Movable {
     void move();
 }
 ```
 
-```
+```java
 public class Tank implements Movable {
     @Override
     public void move() {
@@ -330,7 +635,7 @@ public class Tank implements Movable {
 
 两个代理类: `TankTimeProxy`和`TankLogProxy`:
 
-```
+```java
 public class TankTimeProxy implements Movable {
 
     private Movable tank;
@@ -355,7 +660,7 @@ public class TankTimeProxy implements Movable {
 }
 ```
 
-```
+```java
 public class TankLogProxy implements Movable {
 
     private Movable tank;
@@ -378,7 +683,7 @@ public class TankLogProxy implements Movable {
 ```
 测试
 
-```
+```java
 public class Client {
     public static void main(String[] args){
         Movable target = new TankLogProxy(new TankTimeProxy(new Tank()));    //先记录时间，再记录日志
@@ -390,7 +695,7 @@ public class Client {
 
 输出
 
-```
+```java
 Tank Log start.......
 start time : 1551271511619
 Tank Moving......
@@ -443,7 +748,7 @@ Tank Log end.......
 
 先看最高的`component`包下的`Drink`类:
 
-```
+```java
 /**
  * Component的超类
  * 单品和装饰者都要继承自这个类
@@ -480,7 +785,7 @@ public abstract class Drink {
 
 下面看两个具体的Component:
 
-```
+```java
 /** ConcreteComponent 1*/
 public class Decaf extends Drink {
 
@@ -502,7 +807,7 @@ public class Decaf extends Drink {
 }
 ```
 
-```
+```java
 /** ConcreteComponent 2
  *  也可以在ConcreteComponent和Drink类有一个过渡的类)  (比如Coffee类)
  */
@@ -529,7 +834,7 @@ public class Espresso extends Drink {
 
 第一个是装饰者的超类，继承自`Drink`类:
 
-```
+```java
 public class Decorator extends Drink{
     /**
      * 这个引用很重要，可以是单品，也可以是被包装过的类型，所以使用的是超类的对象
@@ -559,7 +864,7 @@ public class Decorator extends Drink{
 
 然后是两个装饰者:
 
-```
+```java
 /**
  * 这个是具体的装饰者() --> 继承自中间的装饰着Decorator
  */
@@ -573,7 +878,7 @@ public class Chocolate extends Decorator{
 }
 ```
 
-```
+```java
 public class Milk extends Decorator{
 
     public Milk(Drink drink) {
@@ -586,7 +891,7 @@ public class Milk extends Decorator{
 
 //测试类:
 
-```
+```java
 public class MyTest {
     public static void main(String[] args) {
         //只点一个单品 (Decaf 咖啡)
@@ -604,17 +909,16 @@ public class MyTest {
     }
 }
 ```
+
 程序输出:
 
-```
+```java
 order description : Decaf-3.0
 order price : 3.0
 ---------------加了调料的----------------
 order description : Chocolate-1.0 && Chocolate-1.0 && Milk-3.0 && Decaf-3.0
 order price : 8.0
 ```
-
-
 
 ### 2.6 桥模式(Bridge)
 ### 2.7 亨元模式(Flyweight)
