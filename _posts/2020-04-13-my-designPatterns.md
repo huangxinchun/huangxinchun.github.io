@@ -252,17 +252,17 @@ public class MyTest {
 
 因为电脑是由许多的构件组成的，我们将 CPU 和主板进行抽象，然后 CPU 由 CPUFactory 生产，主板由 MainBoardFactory 生产，然后，我们再将 CPU 和主板搭配起来组合在一起，如下:
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/06_abstract_01.png.png) 
+![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/06_abstract_01.png) 
 
 代码组织结构:
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/06_abstract_02.png.png) 
+![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/06_abstract_02.png) 
 
 这个时候，对于客户端来说，不再需要单独挑选 CPU厂商、主板厂商、硬盘厂商等，直接选择一家品牌工厂，品牌工厂会负责生产所有的东西，而且能保证肯定是兼容可用的。
 
 改装的抽象工厂模式代码组织结构如下:
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/06_abstract_05.png.png) 
+![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/06_abstract_05.png) 
 
 这个时候的客户端调用是这样的（测试类）：
 
@@ -293,19 +293,19 @@ public class MyTest {
 下面就是我们要说的产品族的概念，它代表了组成某个产品的一系列附件的集合：
 
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/06_abstract_03.png.png) 
+![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/06_abstract_03.png) 
 
 当涉及到这种产品族的问题的时候，就需要抽象工厂模式来支持了。我们不再定义 CPU 工厂、主板工厂、硬盘工厂、显示屏工厂等等，我们直接定义电脑工厂，每个电脑工厂负责生产所有的设备，这样能保证肯定不存在兼容问题。
 
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/06_abstract_04.png.png) 
+![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/06_abstract_04.png) 
 
 这个时候，对于客户端来说，不再需要单独挑选 CPU厂商、主板厂商、硬盘厂商等，直接选择一家品牌工厂，品牌工厂会负责生产所有的东西，而且能保证肯定是兼容可用的。
 
 改装的抽象工厂模式代码组织结构如下:
 
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/06_abstract_05.png.png) 
+![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/06_abstract_05.png) 
 
 主要的代码:
 
