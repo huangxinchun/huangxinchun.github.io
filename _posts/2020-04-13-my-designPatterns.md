@@ -258,11 +258,6 @@ public class MyTest {
 
 ![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/06_abstract_02.png) 
 
-这个时候，对于客户端来说，不再需要单独挑选 CPU厂商、主板厂商、硬盘厂商等，直接选择一家品牌工厂，品牌工厂会负责生产所有的东西，而且能保证肯定是兼容可用的。
-
-改装的抽象工厂模式代码组织结构如下:
-
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/06_abstract_05.png) 
 
 这个时候的客户端调用是这样的（测试类）：
 
@@ -309,7 +304,7 @@ public class MyTest {
 
 主要的代码:
 
-三个工厂:(一个超类工厂PCFactory，两个大厂工厂AmdFactory、InterFactory)
+三个工厂:(一个超类工厂`PCFactory`，两个大厂工厂`AmdFactory`、`InterFactory`)
 
 ```java
 public interface PCFactory {
