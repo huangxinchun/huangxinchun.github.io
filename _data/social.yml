@@ -1,19 +1,12 @@
 - sitename: 博客
-  name: 何乐而不为
-  url: http://ripperhe.com
+  name: 小小砖头工
+  url: https://huangxinchun.github.io
 
 - sitename: GitHub
-  name: ripperhe
-  url: https://github.com/ripperhe
+  name: 小小砖头工
+  url: https://github.com/huangxinchun
 
-- sitename: 简书
-  name: ripperhe
-  url: http://www.jianshu.com/users/b9249fb85d5d/latest_articles
+- sitename: gitbook
+  name: 小小砖头工
+  url: https://huangxinchun.github.io/HxcBlog
 
-- sitename: 掘金
-  name: ripperhe
-  url: http://gold.xitu.io/user/5815dfbdbf22ec006892f92f
-
-- sitename: 微博
-  name: ripperhe
-  url: http://weibo.com/ripperhe
