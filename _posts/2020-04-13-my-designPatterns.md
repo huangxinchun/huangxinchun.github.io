@@ -372,9 +372,21 @@ public class MyTest {
 
 ### 1.4 单例模式(Singleton)
 
-#### 1.3.1 基本概念
+#### 1.3.1 基本概念、
+
+单例模式属于创建型设计模式。
+
+确保一个类只有一个实例，并提供该实例的全局访问点。
+
+实现: 使用一个`私有构造函数`、一个`私有静态变量`以及一个`公有静态函数来实现`。
 
 #### 1.3.2 结构
+
+类图:
+
+![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/14_singleton.png)
+
+私有构造函数保证了不能通过构造函数来创建对象实例，只能通过公有静态函数返回唯一的私有静态变量。
 
 #### 1.3.3 案例
 
@@ -404,7 +416,8 @@ public class MyTest {
 
 由于门面模式的结构图过于抽象，因此把它稍稍具体点。假设子系统内有三个模块，分别是ModuleA、ModuleB和ModuleC，它们分别有一个示例方法，那么此时示例的整体结构图如下：
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/07_adapter_30.png) 在这个对象图中，出现了两个角色：
+![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/07_adapter_30.png)
+ 在这个对象图中，出现了两个角色：
 - **门面(Facade)角色** ：客户端可以调用这个角色的方法。此角色知晓相关的（一个或者多个）子系统的功能和责任。在正常情况下，本角色会将所有从客户端发来的请求委派到相应的子系统去。
 
 - **子系统(SubSystem)角色** ：可以同时有一个或者多个子系统。每个子系统都不是一个单独的类，而是一个类的集合（如上面的子系统就是由ModuleA、ModuleB、ModuleC三个类组合而成）。每个子系统都可以被客户端直接调用，或者被门面角色调用。子系统并不知道门面的存在，对于子系统而言，门面仅仅是另外一个客户端而已。
