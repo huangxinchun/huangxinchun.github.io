@@ -34,7 +34,7 @@ tags:                               #标签
 
 结构:
 
-
+![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/04_simple_01.png) 
 
 #### 1.1.3 案例
 
@@ -134,17 +134,19 @@ public class MyTest {
 
 即上面有一个大工厂，下面是分类的工厂。
 
+![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/05_method_03.png) 
+
 #### 1.2.3 案例
 
 > 案例，模拟需要生成中国食物A，中国食物B，美国食物A，美国食物B。
 
 代码逻辑结构图:
 
-05_method_01.png
+![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/05_method_01.png) 
 
 基本结构图:
 
-04_method_02.png
+![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/04_method_02.png) 
 
 先给出这些食物(Product):
 
@@ -239,19 +241,70 @@ public class MyTest {
 
 所谓产品族，是指位于不同产品等级结构中，`功能相关联的产品组成的家族`。比如`AMD的主板`、`芯片组`、`CPU`组成一个`家族`，Intel的主板、芯片组、CPU组成一个家族。而这两个家族都来自于三个产品等级：`主板`、`芯片组`、`CPU`。一个等级结构是由相同的结构的产品组成，示意图如下：
 
+![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/06_abstract_06.png) 
+
 #### 1.3.2 结构
 
 
 
 #### 1.3.3 案例
+一个经典的例子是造一台电脑。我们先不引入抽象工厂模式，看看怎么实现。
+
+因为电脑是由许多的构件组成的，我们将 CPU 和主板进行抽象，然后 CPU 由 CPUFactory 生产，主板由 MainBoardFactory 生产，然后，我们再将 CPU 和主板搭配起来组合在一起，如下:
+
+![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/06_abstract_01.png) 
+
+代码组织结构:
+
+![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/06_abstract_02.png) 
+
+
+这个时候的客户端调用是这样的（测试类）：
+
+```
+public class MyTest {
+    public static void main(String[] args){
+        // 得到 Intel 的 CPU
+        CPUFactory intelCPUFactory = new IntelCPUFactory();
+        CPU cpu = intelCPUFactory.makeCPU();
+
+        // 得到 AMD 的主板
+        MainBoardFactory mainBoardFactory = new AmdMainBoardFactory();
+        MainBoard mainBoard = mainBoardFactory.makeMB();
+		
+        // 组装 CPU 和主板
+        Computer computer = new Computer(cpu, mainBoard);
+        System.out.println(computer);
+    }
+}
+```
+
+单独看 CPU 工厂和主板工厂，它们分别是前面我们说的`工厂模式`。
+
+这种方式也容易扩展，因为要给电脑加硬盘的话，只需要加一个 HardDiskFactory 和相应的实现即可，不需要修改现有的工厂。
+
+但是，这种方式有一个问题，那就是如果 `Intel 家产的 CPU 和 AMD 产的主板不能兼容使用`，那么这代码就容易出错，因为客户端并不知道它们不兼容，也就会错误地出现随意组合。
+
+下面就是我们要说的产品族的概念，它代表了组成某个产品的一系列附件的集合：
+
+
+![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/06_abstract_03.png) 
+
+当涉及到这种产品族的问题的时候，就需要抽象工厂模式来支持了。我们不再定义 CPU 工厂、主板工厂、硬盘工厂、显示屏工厂等等，我们直接定义电脑工厂，每个电脑工厂负责生产所有的设备，这样能保证肯定不存在兼容问题。
+
+
+![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/06_abstract_04.png) 
 
 这个时候，对于客户端来说，不再需要单独挑选 CPU厂商、主板厂商、硬盘厂商等，直接选择一家品牌工厂，品牌工厂会负责生产所有的东西，而且能保证肯定是兼容可用的。
 
 改装的抽象工厂模式代码组织结构如下:
 
-06_abstract_05.png
 
-三个工厂:(一个超类工厂PCFactory，两个大厂工厂AmdFactory、InterFactory)
+![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/06_abstract_05.png) 
+
+主要的代码:
+
+三个工厂:(一个超类工厂`PCFactory`，两个大厂工厂`AmdFactory`、`InterFactory`)
 
 ```java
 public interface PCFactory {
@@ -319,9 +372,21 @@ public class MyTest {
 
 ### 1.4 单例模式(Singleton)
 
-#### 1.3.1 基本概念
+#### 1.3.1 基本概念、
+
+单例模式属于创建型设计模式。
+
+确保一个类只有一个实例，并提供该实例的全局访问点。
+
+实现: 使用一个`私有构造函数`、一个`私有静态变量`以及一个`公有静态函数来实现`。
 
 #### 1.3.2 结构
+
+类图:
+
+![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/14_singleton.png)
+
+私有构造函数保证了不能通过构造函数来创建对象实例，只能通过公有静态函数返回唯一的私有静态变量。
 
 #### 1.3.3 案例
 
@@ -351,7 +416,8 @@ public class MyTest {
 
 由于门面模式的结构图过于抽象，因此把它稍稍具体点。假设子系统内有三个模块，分别是ModuleA、ModuleB和ModuleC，它们分别有一个示例方法，那么此时示例的整体结构图如下：
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/07_adapter_30.png) 在这个对象图中，出现了两个角色：
+![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/07_adapter_30.png)
+ 在这个对象图中，出现了两个角色：
 - **门面(Facade)角色** ：客户端可以调用这个角色的方法。此角色知晓相关的（一个或者多个）子系统的功能和责任。在正常情况下，本角色会将所有从客户端发来的请求委派到相应的子系统去。
 
 - **子系统(SubSystem)角色** ：可以同时有一个或者多个子系统。每个子系统都不是一个单独的类，而是一个类的集合（如上面的子系统就是由ModuleA、ModuleB、ModuleC三个类组合而成）。每个子系统都可以被客户端直接调用，或者被门面角色调用。子系统并不知道门面的存在，对于子系统而言，门面仅仅是另外一个客户端而已。
