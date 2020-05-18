@@ -1379,15 +1379,15 @@ _下划线表示static
 
 ##### 2.1.1 继承 
 
-1. 定义
+- 定义
 
 继承表示是一个类（称为子类、子接口）继承另外的一个类（称为父类、父接口）的功能，并可以增加它自己的新功能的能力。
 
-2. 表示方法
+- 表示方法
 
 继承使用空心三角形+实线表示。
 
-3. 示例
+- 示例
 
 鸟类继承抽象类动物
 
@@ -1396,11 +1396,11 @@ _下划线表示static
  
 ##### 2.1.2 实现 
  
-1. 定义
+- 定义
  
  实现表示一个class类实现interface接口（可以是多个）的功能。
  
-2. 表示方法
+- 表示方法
 
     1.矩形表示法 
     
@@ -1409,6 +1409,7 @@ _下划线表示static
     比如：大雁需要飞行，就要实现飞()接口
     
     ![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/uml4.png) 
+    
     2.棒棒糖表示法 
     
     使用实线表示
@@ -1431,7 +1432,16 @@ _下划线表示static
 
 ![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/uml6.png)
 
-
+代码 
+```
+abstract class Animal
+{
+   public bolism(Oxygen oxygen,Water water)
+    {
+    
+    } 
+}
+```
 ##### 2.3 关联 
 
 1. 定义
@@ -1448,22 +1458,37 @@ _下划线表示static
 
 ![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/uml7.png)
 
+```
+class Penguin :Bird
+{
+   private Climateclimate;//在企鹅Penguin中，引用到气候Climate对象
+}
+```
+
 ##### 2.4 聚合 
 
-1. 定义
+- 定义
 
 表示一种弱的‘拥有’关系，即has-a的关系，体现的是A对象可以包含B对象，但B对象不是A对象的一部分。 两个对象具有各自的生命周期。
 
-2. 表示方法
+- 表示方法
 
 聚合关系用空心的菱形+实线箭头表示。
 
-3. 示例
+- 示例
 
 每一只大雁都属于一个大雁群，一个大雁群可以有多只大雁。当大雁死去后大雁群并不会消失，两个对象生命周期不同。
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/uml7.png)
+![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/uml8.png)
 
+代码
+```
+classWideGooseAggregate
+{
+   private WideGoose[]arrayWideGoose;
+   //在雁群WideGooseAggregate类中，有大雁数组对象arrayWideGoose
+}
+```
 ##### 2.5 组合 
 
 1. 定义
@@ -1478,7 +1503,20 @@ _下划线表示static
 
 鸟和翅膀就是组合关系，因为它们是部分和整体的关系，并且翅膀和鸟的生命周期是相同的。
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/uml8.png)
+![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/uml9.png)
+
+代码
+```
+class Bird 
+{
+  private Wing wing;
+  public Bird()
+   {
+      wing=new Wing();
+    //在鸟Bird类中，初始化时，实例化翅膀Wing,它们之间同时生成
+   }
+}
+```
 
 
 
