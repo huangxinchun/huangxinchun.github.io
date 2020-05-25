@@ -137,7 +137,9 @@ void add2(int x,int n){
 }
 
 ```
+
 - 平方阶
+
 ```
 //x=x+1; 执行n*n次 ->O(n^2)
 void add3(int x,int n){
@@ -148,7 +150,9 @@ void add3(int x,int n){
     }
 }
 ```
+
 - 对数阶
+
 ```
 /* 2的x次方等于n x = log2n  ->O(logn)*/
 void testA(int n){
@@ -160,7 +164,9 @@ void testA(int n){
 }
 
 ```
+
 - 立方阶
+
 ```
 void testB(int n){
     int sum = 1;                         //执行1次
@@ -173,6 +179,7 @@ void testB(int n){
     }
 }
 ```
+
 ![图](https://huangxinchun.github.io/HxcBlog/images/imagesAlgorithm/shuju10.png)
 
 
