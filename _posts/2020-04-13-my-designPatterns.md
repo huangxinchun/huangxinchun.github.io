@@ -1379,11 +1379,7 @@ _下划线表示static
 
 ![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/uml2.png) 
 
-#### 2.1 泛化
-
-泛化(Generalization)表示类与类之间的继承关系，接口与接口之间的继承关系，或类对接口的实现关系
-
-##### 2.1.1 继承
+#### 2.1 继承
 
 - 定义
 
@@ -1404,7 +1400,7 @@ _下划线表示static
  java中常见的List集合的继承关系做为例子，List（子接口）接口继承自Collection接口（父接口），而ArrayList类（子类）继承自AbstractList（父类）这个抽象类。java 用extends关键字
 
  
-##### 2.1.2 实现 
+#### 2.2 实现 
  
 - 定义
  
@@ -1426,7 +1422,7 @@ _下划线表示static
     
     ![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/uml5.png) 
 
-##### 2.2 依赖 
+#### 2.2 依赖 
 
 1. 定义
 
@@ -1457,7 +1453,7 @@ abstract class Animal
 ```
 
 
-##### 2.3 关联 
+#### 2.3 关联 
 
 1. 定义
 
@@ -1491,27 +1487,28 @@ class Penguin :Bird
 }
 ```
 
-##### 2.4 聚合 
+#### 2.4 聚合 
 
-- 定义
+1. 定义:表示一种弱的‘拥有’关系，即has-a的关系，体现的是A对象可以包含B对象，但B对象不是A对象的一部分。 两个对象具有各自的生命周期。
+   1. 是关联的一种特例
+   2. 聚合是整体和个体之间的关系。是has-a的关系
+   3. 整体和部分可以具有各自的生命周期，部分可以属于多个整体对象，也可以为多个整体对象共享
+   4. 比如汽车和引擎，就是一种聚合关系，或者电脑和CPU
 
-表示一种弱的‘拥有’关系，即has-a的关系，体现的是A对象可以包含B对象，但B对象不是A对象的一部分。 两个对象具有各自的生命周期。
-
-- 聚合关系是`关联关系`的一种，表示`整体和部分`之间的关系，如学校和老师，车子和轮胎。
-
-- 表示方法
+2. 表示方法
 
 聚合关系用空心的菱形+实线箭头表示。
 
-- 示例
+3. 示例
 
-1.每一只大雁都属于一个大雁群，一个大雁群可以有多只大雁。当大雁死去后大雁群并不会消失，两个对象生命周期不同。
+    - 每一只大雁都属于一个大雁群，一个大雁群可以有多只大雁。当大雁死去后大雁群并不会消失，两个对象生命周期不同。
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/uml8.png)
+    ![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/uml8.png)
 
-2.聚合关系在类中是通过`成员对象`来体现的，成员是整体的一部分，成员也可以脱离整体而存在。如老师是学校的一部分，同时老师也是独立的个体，可以单独存在。
-
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/uml14.png)
+    - 聚合关系在类中是通过`成员对象`来体现的，成员是整体的一部分，成员也可以脱离整体而存在。如老师是学校的一部分，同时老师也是独立的个体，可以单独存在。
+    
+    ![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/uml14.png)
+    
 代码
 ```
 classWideGooseAggregate
@@ -1520,19 +1517,19 @@ classWideGooseAggregate
    //在雁群WideGooseAggregate类中，有大雁数组对象arrayWideGoose
 }
 ```
-##### 2.5 组合 
+#### 2.5 组合 
 
-1. 定义
-
-组合是一种强的‘拥有’关系，是一种contains-a的关系，体现了严格的部分和整体关系，部分和整体的生命周期一样,部分对象不能脱离整体对象而单独存在，如人的身体和大脑之间的关系，大脑不能脱离身体而单独存在。。
-
-2. 表示方法
-
-组合关系用实心的菱形+实线箭头表示，还可以使用连线两端的数字表示某一端有几个实例。
+1. 定义:组合是一种强的‘拥有’关系，是一种contains-a的关系，体现了严格的部分和整体关系，部分和整体的生命周期一样,部分对象不能脱离整体对象而单独存在，如人的身体和大脑之间的关系，大脑不能脱离身体而单独存在。。
+    - 也是关联的一种特例
+    - 是一种强聚合，表示一种contains-a的关系
+    - 部分不能脱离整体而存在，整体的生命周期结束也就意味着部分的生命周期结束
+    - 比如人和腿的关系，腿不能脱离人单独存在，腿的生命周期也不能别人这个整体还长。还有人和大脑，大雁与翅膀
+    
+2. 表示方法:组合关系用实心的菱形+实线箭头表示，还可以使用连线两端的数字表示某一端有几个实例。
 
 3. 示例
 
-1.鸟和翅膀就是组合关系，因为它们是部分和整体的关系，并且翅膀和鸟的生命周期是相同的。
+    - 鸟和翅膀就是组合关系，因为它们是部分和整体的关系，并且翅膀和鸟的生命周期是相同的。
 
 ![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/uml9.png)
 
@@ -1549,7 +1546,7 @@ class Bird
 }
 ```
 
-2. 比如人和腿的关系，腿不能脱离人单独存在，腿的生命周期也不能别人这个整体还长。还有人和大脑，大雁与翅膀
+   - 比如人和腿的关系，腿不能脱离人单独存在，腿的生命周期也不能别人这个整体还长。还有人和大脑，大雁与翅膀
 
 ![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/uml15.png)
 
