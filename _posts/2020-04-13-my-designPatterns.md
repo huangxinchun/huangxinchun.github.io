@@ -1371,28 +1371,38 @@ _下划线表示static
 
 在UML类图中，常见的有以下几种关系: `泛化（Generalization）`, `实现（Realization）`，`关联（Association)`，`聚合（Aggregation）`，`组合(Composition)`，`依赖(Dependency)`
 
+关系图
+
+![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/uml10.png) 
+
+例子图
+
 ![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/uml2.png) 
 
 #### 2.1 泛化
 
 泛化(Generalization)表示类与类之间的继承关系，接口与接口之间的继承关系，或类对接口的实现关系
 
-##### 2.1.1 继承 
+##### 2.1.1 继承
 
 - 定义
 
-继承表示是一个类（称为子类、子接口）继承另外的一个类（称为父类、父接口）的功能，并可以增加它自己的新功能的能力。
+继承表示是`一个类`（称为子类、子接口）`继承另外的一个类`（称为父类、父接口）的功能，`并可以增加它自己的新功能的能力`。
 
 - 表示方法
 
 继承使用空心三角形+实线表示。
 
-- 示例
+- 形象示例
 
 鸟类继承抽象类动物
 
-
 ![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/uml3.png) 
+ 
+ - 代码示例
+ 
+ java中常见的List集合的继承关系做为例子，List（子接口）接口继承自Collection接口（父接口），而ArrayList类（子类）继承自AbstractList（父类）这个抽象类。java 用extends关键字
+
  
 ##### 2.1.2 实现 
  
@@ -1422,6 +1432,8 @@ _下划线表示static
 
 对于两个相对独立的对象，当一个对象负责构造另一个对象的实例，或者依赖另一个对象的服务时，这两个对象之间主要体现为依赖关系。
 
+是说一个类用到了另一个类。这种使用关系是具有`偶然性的`、`临时性的`、非常弱的。比如下图中的依赖关系，司机开车，要依赖车。在代码上表现的话一般为`函数参数`，或者`局部变量`或者对`静态方法`的调用。如下图的UML类图中Driver 对Car的依赖就是`通过函数参数`的方式。注意依赖关系只能是`单向的`，并且依赖关系强调的是**使用上的关系**。
+
 2. 表示方法
 
 依赖关系用虚线箭头表示。
@@ -1432,6 +1444,7 @@ _下划线表示static
 
 ![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/uml6.png)
 
+![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/uml12.png)
 代码 
 ```
 abstract class Animal
@@ -1442,11 +1455,24 @@ abstract class Animal
     } 
 }
 ```
+
+
 ##### 2.3 关联 
 
 1. 定义
 
 对于两个相对独立的对象，当一个对象的实例与另一个对象的一些特定实例存在固定的对应关系时，这两个对象之间为关联关系。
+
+- 关联关系强调的是一种结构上的关系
+- 他可以是单向的或者双向的
+- 从语义级别(上下文)可以分为`聚合`和`组合`，在代码实现上关联 和聚合是很像的，主要区别在语义上
+- 一般来说双方关系是平等的，比如我和我的朋友
+- 在java语言上一般表现为全局变量
+- 如person类和company类,顾客和地址,客户和订单
+
+`重数性关联`: 重数性关联关系又称为多重性关联关系(Multiplicity)，表示一个类的对象与另一个类的对象连接的个数。在UML中多重性关系可以直接在关联直线上增加一个数字表示与之对应的另一个类的对象的个数。
+
+![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/uml13.png)
 
 2. 表示方法
 
@@ -1471,16 +1497,21 @@ class Penguin :Bird
 
 表示一种弱的‘拥有’关系，即has-a的关系，体现的是A对象可以包含B对象，但B对象不是A对象的一部分。 两个对象具有各自的生命周期。
 
+- 聚合关系是`关联关系`的一种，表示`整体和部分`之间的关系，如学校和老师，车子和轮胎。
+
 - 表示方法
 
 聚合关系用空心的菱形+实线箭头表示。
 
 - 示例
 
-每一只大雁都属于一个大雁群，一个大雁群可以有多只大雁。当大雁死去后大雁群并不会消失，两个对象生命周期不同。
+1.每一只大雁都属于一个大雁群，一个大雁群可以有多只大雁。当大雁死去后大雁群并不会消失，两个对象生命周期不同。
 
 ![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/uml8.png)
 
+2.聚合关系在类中是通过`成员对象`来体现的，成员是整体的一部分，成员也可以脱离整体而存在。如老师是学校的一部分，同时老师也是独立的个体，可以单独存在。
+
+![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/uml14.png)
 代码
 ```
 classWideGooseAggregate
@@ -1493,7 +1524,7 @@ classWideGooseAggregate
 
 1. 定义
 
-组合是一种强的‘拥有’关系，是一种contains-a的关系，体现了严格的部分和整体关系，部分和整体的生命周期一样。
+组合是一种强的‘拥有’关系，是一种contains-a的关系，体现了严格的部分和整体关系，部分和整体的生命周期一样,部分对象不能脱离整体对象而单独存在，如人的身体和大脑之间的关系，大脑不能脱离身体而单独存在。。
 
 2. 表示方法
 
@@ -1501,7 +1532,7 @@ classWideGooseAggregate
 
 3. 示例
 
-鸟和翅膀就是组合关系，因为它们是部分和整体的关系，并且翅膀和鸟的生命周期是相同的。
+1.鸟和翅膀就是组合关系，因为它们是部分和整体的关系，并且翅膀和鸟的生命周期是相同的。
 
 ![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/uml9.png)
 
@@ -1518,5 +1549,22 @@ class Bird
 }
 ```
 
+2. 比如人和腿的关系，腿不能脱离人单独存在，腿的生命周期也不能别人这个整体还长。还有人和大脑，大雁与翅膀
+
+![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/uml15.png)
+
+```
+//人和嘴是一种组合关系
+public class Person {
+   private Mouth mouth;
+   public Person() {
+       mouth = new Mouth();
+   }
+   ……
+}
+public class Mouth {
+   ……
+}
+```
 
 
