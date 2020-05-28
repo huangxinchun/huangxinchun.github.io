@@ -1,10 +1,9 @@
 - name: Software Engineer Keywords
   keywords:
-      - Objective-C
-      - Swift
-      - Ruby-菜鸟
+      - PHP
+      - GO
+      - 后端开发
 
 - name: Client Developer Keywords
   keywords:
-      - iOS
       - macOS
