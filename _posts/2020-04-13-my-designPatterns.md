@@ -132,9 +132,17 @@ public class MyTest {
 
 在简单工厂中，创建对象的是另一个类，而在工厂方法中，是由大工厂的子类(或者实现类)来创建对象。
 
+工厂方法模式的主要角色如下。
+
+1. 抽象工厂（Abstract Factory）：提供了创建产品的接口，调用者通过它访问具体工厂的工厂方法 newProduct() 来创建产品。
+2. 具体工厂（ConcreteFactory）：主要是实现抽象工厂中的抽象方法，完成具体产品的创建。
+3. 抽象产品（Product）：定义了产品的规范，描述了产品的主要特性和功能。
+4. 具体产品（ConcreteProduct）：实现了抽象产品角色所定义的接口，由具体工厂来创建，它同具体工厂之间一一对应。
+
 即上面有一个大工厂，下面是分类的工厂。
 
 ![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/05_method_03.png) 
+![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/05_method_04.png) 
 
 #### 1.2.3 案例
 
@@ -245,6 +253,15 @@ public class MyTest {
 
 #### 1.3.2 结构
 
+抽象工厂模式的主要角色如下。
+1. 抽象工厂（Abstract Factory）：提供了创建产品的接口，它包含多个创建产品的方法 newProduct()，可以创建多个不同等级的产品。
+2. 具体工厂（Concrete Factory）：主要是实现抽象工厂中的多个抽象方法，完成具体产品的创建。
+3. 抽象产品（Product）：定义了产品的规范，描述了产品的主要特性和功能，抽象工厂模式有多个抽象产品。
+4. 具体产品（ConcreteProduct）：实现了抽象产品角色所定义的接口，由具体工厂来创建，它 同具体工厂之间是多对一的关系。
+
+抽象工厂模式的结构图如图所示。
+
+![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/06_abstract_07.png) 
 
 
 #### 1.3.3 案例
@@ -298,7 +315,6 @@ public class MyTest {
 这个时候，对于客户端来说，不再需要单独挑选 CPU厂商、主板厂商、硬盘厂商等，直接选择一家品牌工厂，品牌工厂会负责生产所有的东西，而且能保证肯定是兼容可用的。
 
 改装的抽象工厂模式代码组织结构如下:
-
 
 ![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/06_abstract_05.png) 
 
@@ -421,6 +437,10 @@ public class MyTest {
 - **门面(Facade)角色** ：客户端可以调用这个角色的方法。此角色知晓相关的（一个或者多个）子系统的功能和责任。在正常情况下，本角色会将所有从客户端发来的请求委派到相应的子系统去。
 
 - **子系统(SubSystem)角色** ：可以同时有一个或者多个子系统。每个子系统都不是一个单独的类，而是一个类的集合（如上面的子系统就是由ModuleA、ModuleB、ModuleC三个类组合而成）。每个子系统都可以被客户端直接调用，或者被门面角色调用。子系统并不知道门面的存在，对于子系统而言，门面仅仅是另外一个客户端而已。
+
+- **客户（Client）角色**：通过一个外观角色访问各个子系统的功能。
+
+![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/07_adapter_31.png)
 
 #### 2.1.3 案例
 
