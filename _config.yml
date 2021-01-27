@@ -26,10 +26,11 @@ twitter: https://huangxinchun.github.io/HxcBlog
 # ---------------- #
 #    Navigation    #
 # ---------------- #
+
 navs:
   -
     href: /
-    label: 首页
+label: 首页
 
   -
     href: /categories/
