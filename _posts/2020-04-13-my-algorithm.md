@@ -18,7 +18,7 @@ tags:                               #标签
 
 数据结构：是指数据相互之间存在`一种`或`多种`特定关系的`数据元素的集合`用计算机`存储`、`组织`数据的方式。数据结构分别为`逻辑结构`、（存储）`物理结构`和`数据的运算`三个部分。
 
-![图](https://huangxinchun.github.io/HxcBlog/images/imagesAlgorithm/shuju1.png)
+![图](https://shenxiaozi007.github.io/HxcBlog/images/imagesAlgorithm/shuju1.png)
   
 ## 1 数据结构概述
 
@@ -38,7 +38,7 @@ tags:                               #标签
 6. 数据类型（data type）是按照`数据值的不同`进行划分的可操作性。在C语言中还可以分为原子类型和结构类型。原字类型是不可以再分解的基本类型，包括`整型`、`浮点型`、`字符型`等。结构类型是由若干个类型组合而成，是可以再分解的。
 下图展示出他们之间的关系：
 
-![图](https://huangxinchun.github.io/HxcBlog/images/imagesAlgorithm/shuju2.png)
+![图](https://shenxiaozi007.github.io/HxcBlog/images/imagesAlgorithm/shuju2.png)
 
 ### 1.2 数据的逻辑结构
 
@@ -46,19 +46,19 @@ tags:                               #标签
 
 1. 集合结构：集合结构的集合中任何两个数据元素之间都没有`逻辑关系`，组织形式松散,仅仅是因为他们挤在一个被称作“集合”的盒子里。
 
-![图](https://huangxinchun.github.io/HxcBlog/images/imagesAlgorithm/shuju3.png)
+![图](https://shenxiaozi007.github.io/HxcBlog/images/imagesAlgorithm/shuju3.png)
 
 2. 线性结构：线性的数据元素结构关系是`一对一`的，并且是`有序的`，就像a-b-c-d-e-f-g·····被一根线穿连起来。常用的线性结构：数组、栈、队列、字符串、线性表。
 
-![图](https://huangxinchun.github.io/HxcBlog/images/imagesAlgorithm/shuju4.png)
+![图](https://shenxiaozi007.github.io/HxcBlog/images/imagesAlgorithm/shuju4.png)
 
 3.树形结构：树状结构是一个或多个节点的有限集合,也就是一对多的关系。
 
-![图](https://huangxinchun.github.io/HxcBlog/images/imagesAlgorithm/shuju5.png)
+![图](https://shenxiaozi007.github.io/HxcBlog/images/imagesAlgorithm/shuju5.png)
 
 4. 图结构：图的数据元素结构关系是`多对多`的。就是我们常见的各大城市的铁路图，一个城市有很多线路连接不同城市。
 
-![图](https://huangxinchun.github.io/HxcBlog/images/imagesAlgorithm/shuju6.png)
+![图](https://shenxiaozi007.github.io/HxcBlog/images/imagesAlgorithm/shuju6.png)
 
 ### 1.3 数据的存储（物理）结构
 
@@ -66,11 +66,11 @@ tags:                               #标签
 
 1. 顺序存储结构：顺序存储方法它是把`逻辑上相邻的结点`存储在`物理位置相邻`的存储单元里，结点间的`逻辑关系`由`存储单元的邻接关系`来体现，由此得到的存储表示称为顺序存储结构。
 
-![图](https://huangxinchun.github.io/HxcBlog/images/imagesAlgorithm/shuju7.png)
+![图](https://shenxiaozi007.github.io/HxcBlog/images/imagesAlgorithm/shuju7.png)
 
 2. 链式存储结构：是把数据元素存放在`任意的存储单元`里，这组存储单元可以是`连续的`，也可以是`不连续的`，数据元素的存储关系并`不能`反映其`逻辑关系`，因此需要借助`指针`来表示`数据元素之间的逻辑关系`。
 
-![图](https://huangxinchun.github.io/HxcBlog/images/imagesAlgorithm/shuju8.png)
+![图](https://shenxiaozi007.github.io/HxcBlog/images/imagesAlgorithm/shuju8.png)
 
 > 小结：数据的逻辑结构和物理结构是密切相关的，在学习数据的过程中会发现，任何一个算法的设计取决于选定的数据逻辑结构，而算法的实现依赖于所采用的存储结构。
 
@@ -92,7 +92,7 @@ tags:                               #标签
    
 如图:
 
-![图](https://huangxinchun.github.io/HxcBlog/images/imagesAlgorithm/shuju9.png)
+![图](https://shenxiaozi007.github.io/HxcBlog/images/imagesAlgorithm/shuju9.png)
 
 - 算法的五大特性
    1. 有穷性，是指算法在执行有限的步骤之后，自动结束而不是出现无限循环，并且每一个步骤在可接受的时间内完成。
@@ -180,7 +180,7 @@ void testB(int n){
 }
 ```
 
-![图](https://huangxinchun.github.io/HxcBlog/images/imagesAlgorithm/shuju10.png)
+![图](https://shenxiaozi007.github.io/HxcBlog/images/imagesAlgorithm/shuju10.png)
 
 
 例如：
@@ -190,7 +190,7 @@ void testB(int n){
 
 - for(i =1 ; i<=n ; i++）{for(j=1;j<=n;j++){  x=x+1 } }  // 时间复杂度为O(n²),称为平方阶
 
-![图](https://huangxinchun.github.io/HxcBlog/images/imagesAlgorithm/shuju11.png)
+![图](https://shenxiaozi007.github.io/HxcBlog/images/imagesAlgorithm/shuju11.png)
 
 ### 1.7 空间复杂度
 
@@ -214,9 +214,9 @@ void testB(int n){
 使用稀疏数组，来保留类似前面的二维数组(棋盘、地图等等)
 把稀疏数组存盘，并且可以从新恢复原来的二维数组数
 
-![图](https://huangxinchun.github.io/HxcBlog/images/imagesAlgorithm/alg1.png)
+![图](https://shenxiaozi007.github.io/HxcBlog/images/imagesAlgorithm/alg1.png)
    
-![图](https://huangxinchun.github.io/HxcBlog/images/imagesAlgorithm/alg2.png)
+![图](https://shenxiaozi007.github.io/HxcBlog/images/imagesAlgorithm/alg2.png)
 
 代码实现
 ```java
@@ -318,7 +318,7 @@ public class SparseArray {
 - 遵循`先入先出`的原则。即：先存入队列的数据，要先取出。后存入的要后取出
 示意图：(使用数组模拟队列示意图)
 
-![图](https://huangxinchun.github.io/HxcBlog/images/imagesAlgorithm/alg3.png)
+![图](https://shenxiaozi007.github.io/HxcBlog/images/imagesAlgorithm/alg3.png)
 
 #### 2.2 数组模拟队列
 
@@ -326,7 +326,7 @@ public class SparseArray {
 
 - 因为队列的输出、输入是分别从前后端来处理，因此需要两个变量 front及 rear分别记录队列前后端的下标，front 会随着数据输出而改变，而 rear则是随着数据输入而改变，如图所示:
 
-![图](https://huangxinchun.github.io/HxcBlog/images/imagesAlgorithm/alg4.png)
+![图](https://shenxiaozi007.github.io/HxcBlog/images/imagesAlgorithm/alg4.png)
 
 - 当我们将数据存入队列时称为”addQueue”，addQueue 的处理需要有两个步骤：思路分析 
     1. 将尾指针往后移：rear+1 , 当front == rear 【空】
@@ -475,13 +475,13 @@ class ArrayQueue {
 #### 2.3 数组模拟环形队列
 
 对前面的数组模拟队列的优化，充分利用数组.因此将数组看做是一个环形的。(通过取模的方式来实现即可)
-![图](https://huangxinchun.github.io/HxcBlog/images/imagesAlgorithm/alg6.png)
+![图](https://shenxiaozi007.github.io/HxcBlog/images/imagesAlgorithm/alg6.png)
 
 - 尾索引的下一个为头索引时表示队列满，即将队列容量空出一个作为约定,这个在做判断队列满的时候需要注意 (rear + 1) % maxSize == front 满] 
 - rear == front [空]
 
 测试示意图:
-![图](https://huangxinchun.github.io/HxcBlog/images/imagesAlgorithm/alg5.png)
+![图](https://shenxiaozi007.github.io/HxcBlog/images/imagesAlgorithm/alg5.png)
 
 代码实现
 ```

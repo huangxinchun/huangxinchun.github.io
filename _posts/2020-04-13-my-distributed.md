@@ -88,7 +88,7 @@ tags:                               #标签
 
    1. Zookeeper 抽象模型
        Zookeeper 提供了一种树形结构的命名空间，/app1/p_1 节点的父节点为 /app1。
-       ![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDistributed/distributed1.png)
+       ![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDistributed/distributed1.png)
    2. 节点类型
   
       - 永久节点：不会因为会话结束或者超时而消失；
@@ -134,7 +134,7 @@ tags:                               #标签
    1.准备阶段
         协调者询问参与者事务是否执行成功，参与者发回事务执行结果。询问可以看成一种投票，需要参与者都同意才能执行。
    
-   ![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDistributed/distributed2.png)
+   ![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDistributed/distributed2.png)
    
    2.提交阶段
    
@@ -142,7 +142,7 @@ tags:                               #标签
    
    需要注意的是，在准备阶段，参与者执行了事务，但是还未提交。只有在提交阶段接收到协调者发来的通知后，才进行提交或者回滚。
    
-   ![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDistributed/distributed3.png)
+   ![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDistributed/distributed3.png)
    
 ### 1.2 存在问题
 
@@ -172,13 +172,13 @@ tags:                               #标签
    
    3. 在分布式事务操作的另一方从消息队列中读取一个消息，并执行消息中的操作。
    
-  ![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDistributed/distributed4.png)
+  ![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDistributed/distributed4.png)
   
 ## 三 CAP
 
 分布式系统不可能同时满足`一致性`（C：Consistency）、`可用性`（A：Availability）和`分区容忍性`（P：Partition Tolerance），最多只能同时满足其中两项。
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDistributed/distributed5.png)
+![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDistributed/distributed5.png)
 
 ### 1. 一致性
 

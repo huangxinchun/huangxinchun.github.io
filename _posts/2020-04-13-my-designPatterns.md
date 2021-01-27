@@ -34,7 +34,7 @@ tags:                               #标签
 
 结构:
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/04_simple_01.png) 
+![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/04_simple_01.png) 
 
 #### 1.1.3 案例
 
@@ -141,8 +141,8 @@ public class MyTest {
 
 即上面有一个大工厂，下面是分类的工厂。
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/05_method_03.png) 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/05_method_04.png) 
+![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/05_method_03.png) 
+![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/05_method_04.png) 
 
 #### 1.2.3 案例
 
@@ -150,11 +150,11 @@ public class MyTest {
 
 代码逻辑结构图:
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/05_method_01.png) 
+![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/05_method_01.png) 
 
 基本结构图:
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/04_method_02.png) 
+![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/04_method_02.png) 
 
 先给出这些食物(Product):
 
@@ -249,7 +249,7 @@ public class MyTest {
 
 所谓产品族，是指位于不同产品等级结构中，`功能相关联的产品组成的家族`。比如`AMD的主板`、`芯片组`、`CPU`组成一个`家族`，Intel的主板、芯片组、CPU组成一个家族。而这两个家族都来自于三个产品等级：`主板`、`芯片组`、`CPU`。一个等级结构是由相同的结构的产品组成，示意图如下：
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/06_abstract_06.png) 
+![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/06_abstract_06.png) 
 
 #### 1.3.2 结构
 
@@ -261,7 +261,7 @@ public class MyTest {
 
 抽象工厂模式的结构图如图所示。
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/06_abstract_07.png) 
+![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/06_abstract_07.png) 
 
 
 #### 1.3.3 案例
@@ -269,11 +269,11 @@ public class MyTest {
 
 因为电脑是由许多的构件组成的，我们将 CPU 和主板进行抽象，然后 CPU 由 CPUFactory 生产，主板由 MainBoardFactory 生产，然后，我们再将 CPU 和主板搭配起来组合在一起，如下:
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/06_abstract_01.png) 
+![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/06_abstract_01.png) 
 
 代码组织结构:
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/06_abstract_02.png) 
+![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/06_abstract_02.png) 
 
 
 这个时候的客户端调用是这样的（测试类）：
@@ -305,18 +305,18 @@ public class MyTest {
 下面就是我们要说的产品族的概念，它代表了组成某个产品的一系列附件的集合：
 
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/06_abstract_03.png) 
+![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/06_abstract_03.png) 
 
 当涉及到这种产品族的问题的时候，就需要抽象工厂模式来支持了。我们不再定义 CPU 工厂、主板工厂、硬盘工厂、显示屏工厂等等，我们直接定义电脑工厂，每个电脑工厂负责生产所有的设备，这样能保证肯定不存在兼容问题。
 
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/06_abstract_04.png) 
+![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/06_abstract_04.png) 
 
 这个时候，对于客户端来说，不再需要单独挑选 CPU厂商、主板厂商、硬盘厂商等，直接选择一家品牌工厂，品牌工厂会负责生产所有的东西，而且能保证肯定是兼容可用的。
 
 改装的抽象工厂模式代码组织结构如下:
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/06_abstract_05.png) 
+![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/06_abstract_05.png) 
 
 主要的代码:
 
@@ -400,7 +400,7 @@ public class MyTest {
 
 类图:
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/14_singleton.png)
+![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/14_singleton.png)
 
 私有构造函数保证了不能通过构造函数来创建对象实例，只能通过公有静态函数返回唯一的私有静态变量。
 
@@ -432,7 +432,7 @@ public class MyTest {
 
 由于门面模式的结构图过于抽象，因此把它稍稍具体点。假设子系统内有三个模块，分别是ModuleA、ModuleB和ModuleC，它们分别有一个示例方法，那么此时示例的整体结构图如下：
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/07_adapter_30.png)
+![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/07_adapter_30.png)
  在这个对象图中，出现了两个角色：
 - **门面(Facade)角色** ：客户端可以调用这个角色的方法。此角色知晓相关的（一个或者多个）子系统的功能和责任。在正常情况下，本角色会将所有从客户端发来的请求委派到相应的子系统去。
 
@@ -440,7 +440,7 @@ public class MyTest {
 
 - **客户（Client）角色**：通过一个外观角色访问各个子系统的功能。
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/07_adapter_31.png)
+![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/07_adapter_31.png)
 
 #### 2.1.3 案例
 
@@ -513,7 +513,7 @@ public class Client {
 
 - 对象适配器
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/07_adapter_01.png)
+![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/07_adapter_01.png)
 
 从用户的角度看不到被**适配者**。
 
@@ -523,7 +523,7 @@ public class Client {
 
 - 类适配器
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/07_adapter_05.png)
+![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/07_adapter_05.png)
 
 通过多重继承目标接口和被适配者类方式来实现适配。
 
@@ -534,11 +534,11 @@ public class Client {
 
 逻辑图:
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/07_adapter_03.png)
+![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/07_adapter_03.png)
 
 代码组织结构图:
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/07_adapter_02.png)
+![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/07_adapter_02.png)
 
 被适配者火鸡Turkey:
 
@@ -633,7 +633,7 @@ I am Flying a short distance!
 
 基本结构图:
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/07_adapter_04.png)
+![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/07_adapter_04.png)
 
 虽然Java不支持多继承，但是可以实现的同时继承。
 
@@ -688,13 +688,13 @@ public class MyTest {
 
 代理可以看做就是在被代理对象外面包裹一层（和装饰者类似但又不同）
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/11_proxy_02.png)
+![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/11_proxy_02.png)
 
 #### 2.3.3 案例
 
 比如我们有一个可以移动的坦克，它的主要方法是move()，但是我们需要记录它移动的时间，以及在它移动前后做日志，其静态代理的实现模式就类似下面的图:
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/11_proxy_01.png)
+![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/11_proxy_01.png)
 
 实现如下：
 
@@ -817,7 +817,7 @@ Tank Log end.......
 > 所谓装饰，就是把这个装饰者套在被装饰者之上，从而动态扩展被装饰者的功能；
 > 装饰者的方法有一部分是自己的，这属于它的功能(半透明的装饰者模式)。然后调用被装饰者的方法实现，从而也保> 留了被装饰者的功能；
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/03_decorator_02.png)
+![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/03_decorator_02.png)
 
 
 #### 2.5.3 案例
@@ -828,7 +828,7 @@ Tank Log end.......
 
 具体的代码组织结构图:
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/03_decorator_01.png)
+![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/03_decorator_01.png)
 
 具体代码:
 
@@ -1035,7 +1035,7 @@ order price : 8.0
 
 - `具体观察者(ConcreteObserver)角色`：存储与主题的状态自恰的状态。具体观察者角色实现抽象观察者角色所要求的更新接口，以便使本身的状态与主题的状态相协调。如果需要，具体观察者角色可以保持一个指向具体主题对象(Concrete Subject)的引用；
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/02_observer_02.png) 
+![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/02_observer_02.png) 
 
 #### 3.1.3 案例
 
@@ -1045,13 +1045,13 @@ order price : 8.0
 
 基本结构图:
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/02_observer_01.png) 
+![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/02_observer_01.png) 
 
 下面使用自定义的观察者实现。
 
 基本代码结构组织图:
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/02_observer_03.png) 
+![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/02_observer_03.png) 
 
 先看被观察者包`subjects`里面的两个:
 
@@ -1248,7 +1248,7 @@ CurrentDisplay : [20.0, 200.0, 25.0]
 
 下面是基本结构:
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/01_stratgy_01.png) 
+![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/01_stratgy_01.png) 
 
 
 三类角色:
@@ -1266,7 +1266,7 @@ CurrentDisplay : [20.0, 200.0, 25.0]
 
 实现代码整体框架图:
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/01_stratgy_02.png) 
+![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/01_stratgy_02.png) 
 
 具体代码实现:
 
@@ -1378,7 +1378,7 @@ public class MyTest {
 
 #### 1. 类图基础属性
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/uml1.png) 
+![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/uml1.png) 
 
 ```
 -表示private  
@@ -1393,11 +1393,11 @@ _下划线表示static
 
 关系图
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/uml10.png) 
+![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/uml10.png) 
 
 例子图
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/uml2.png) 
+![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/uml2.png) 
 
 #### 2.1 继承
 
@@ -1413,7 +1413,7 @@ _下划线表示static
 
 鸟类继承抽象类动物
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/uml3.png) 
+![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/uml3.png) 
  
  - 代码示例
  
@@ -1434,13 +1434,13 @@ _下划线表示static
     
     比如：大雁需要飞行，就要实现飞()接口
     
-    ![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/uml4.png) 
+    ![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/uml4.png) 
     
     2.棒棒糖表示法 
     
     使用实线表示
     
-    ![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/uml5.png) 
+    ![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/uml5.png) 
 
 #### 2.2 依赖 
 
@@ -1458,9 +1458,9 @@ _下划线表示static
 
 动物依赖氧气和水。调用新陈代谢方法需要氧气类与水类的实例作为参数
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/uml6.png)
+![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/uml6.png)
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/uml12.png)
+![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/uml12.png)
 代码 
 ```
 abstract class Animal
@@ -1485,11 +1485,11 @@ abstract class Animal
 - 在java语言上一般表现为`全局变量`
 - 如person类和company类,顾客和地址,客户和订单
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/uml16.png)
+![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/uml16.png)
 
 `重数性关联`: 重数性关联关系又称为多重性关联关系(Multiplicity)，表示一个类的对象与另一个类的对象连接的个数。在UML中多重性关系可以直接在关联直线上增加一个数字表示与之对应的另一个类的对象的个数。
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/uml13.png)
+![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/uml13.png)
 
 2. 表示方法
 
@@ -1499,7 +1499,7 @@ abstract class Animal
 
 企鹅需要‘知道’气候的变化，需要‘了解’气候规律。当一个类‘知道’另一个类时，可以用关联。
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/uml7.png)
+![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/uml7.png)
 
 ```
 class Penguin :Bird
@@ -1524,11 +1524,11 @@ class Penguin :Bird
 
     - 每一只大雁都属于一个大雁群，一个大雁群可以有多只大雁。当大雁死去后大雁群并不会消失，两个对象生命周期不同。
 
-    ![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/uml8.png)
+    ![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/uml8.png)
 
     - 聚合关系在类中是通过`成员对象`来体现的，成员是整体的一部分，成员也可以脱离整体而存在。如老师是学校的一部分，同时老师也是独立的个体，可以单独存在。
     
-    ![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/uml14.png)
+    ![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/uml14.png)
     
 代码
 ```
@@ -1552,7 +1552,7 @@ classWideGooseAggregate
 
     - 鸟和翅膀就是组合关系，因为它们是部分和整体的关系，并且翅膀和鸟的生命周期是相同的。
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/uml9.png)
+![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/uml9.png)
 
 代码
 ```
@@ -1569,7 +1569,7 @@ class Bird
 
    - 比如人和腿的关系，腿不能脱离人单独存在，腿的生命周期也不能别人这个整体还长。还有人和大脑，大雁与翅膀
 
-![图片](https://huangxinchun.github.io/HxcBlog/images/imagesDesignPatterns/uml15.png)
+![图片](https://shenxiaozi007.github.io/HxcBlog/images/imagesDesignPatterns/uml15.png)
 
 ```
 //人和嘴是一种组合关系

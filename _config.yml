@@ -2,7 +2,7 @@
 #   Main Configs   #
 # ---------------- #
 baseurl:
-url: https://huangxinchun.github.io
+url: https://shenxiaozi007.github.io
 date_format: "ordinal"
 title: 娱乐和辛苦不会被记住，但是知识会！
 subtitle: "娱乐和辛苦不会被记住，但是知识会！"
@@ -17,11 +17,11 @@ side_bar_repo_limit: 4
 # ---------------- #
 author: hxc
 organization: Picooc
-organization_url: https://huangxinchun.github.io
+organization_url: https://shenxiaozi007.github.io
 github_username: huangxinchun
 location: Beijing, China
 email: mailto:173315279@qq.com
-twitter: https://huangxinchun.github.io/HxcBlog
+twitter: https://shenxiaozi007.github.io/HxcBlog
 
 # ---------------- #
 #    Navigation    #
@@ -82,7 +82,7 @@ collections:
         output: true
         permalink: /wiki/:path/
 
-repository: huangxinchun/huangxinchun.github.io
+repository: huangxinchun/shenxiaozi007.github.io
 
 # ---------------- #
 #      Comments    #

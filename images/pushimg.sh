@@ -7,7 +7,7 @@ exit
 fi
 
 #博客地址
-hxc_path="../../huangxinchun.github.io"
+hxc_path="../../shenxiaozi007.github.io"
 images_path="../images"
 
 echo "更新本地"
